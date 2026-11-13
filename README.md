@@ -2,9 +2,6 @@
 
 Tarayıcıda oynanan, **React + Vite** ile yazılmış izometrik orta çağ strateji oyunu. Köyünü kur, kaynak topla, çağ atla, ordunu eğit ve yapay zekâ rakiplerinin Köy Merkezini yık.
 
-- **Canlı site:** _yayınlanınca buraya eklenecek_
-- **Depo:** _GitHub adresi buraya eklenecek_
-
 ![Giriş ekranı](docs/ekran-goruntuleri/00-giris.jpg)
 
 ## Özellikler
