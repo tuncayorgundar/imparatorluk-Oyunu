@@ -1,5 +1,4 @@
 // ===== 04_sprites: arazi dokusu ve su boyaması (birim/bina sprite'ları 04_voxel/04_units3d/04_buildings3d içinde) =====
-const FR = {};
 // --- arazi dokusu (başlangıçta bir kez, init içinde çağrılır)
 const TR = document.createElement('canvas');
 TR.width = WW;

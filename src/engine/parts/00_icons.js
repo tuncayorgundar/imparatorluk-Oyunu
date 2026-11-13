@@ -1,8 +1,7 @@
 // ===== 00_icons: tamamen kendi çizdiğimiz vektör ikonlar (emoji ve resim dosyası yok) =====
 // Metinde [[ad]] belirteci yazılır; DOM'a girdiği anda bu SVG ikonla değiştirilir (MutationObserver). Yeni ikon: ICN'ye çizim ekle, [[ad]] olarak kullan.
 // Stil: koyu kontur, sıcak altın/kahve/çelik renkleri, 24x24 çizim alanı; boyut yazı boyutuna (em) bağlıdır.
-const IK = '#2b1a0c',
-  ISK = `stroke="${IK}" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"`;
+const IK = '#2b1a0c';
 const ip = (d, f, s = IK, w = 1.2) =>
     `<path d="${d}" fill="${f}" stroke="${s}" stroke-width="${w}" stroke-linejoin="round" stroke-linecap="round"/>`,
   ic_ = (x, y, r, f, s = IK, w = 1.2) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${f}" stroke="${s}" stroke-width="${w}"/>`,

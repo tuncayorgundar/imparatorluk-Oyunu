@@ -1,7 +1,4 @@
 // ===== 13_menus: menü arka plan animasyonu ve duraklatma isteği (menülerin kendisi React'ta: src/screens) =====
-function fsr() {
-  goFS();
-}
 // Menünün arka planı: gün batımı, ilerleyen ordular, bayraklar, duman, ateş böcekleri (menü kalkınca durur)
 function menuBg(cv2) {
   const g = cv2.getContext('2d');

@@ -27,13 +27,6 @@ const WMAT = [LOGF, BRKF, STF],
 // Harita değişince sprite önbelleği temizlenir (clearBldCache), böylece zemin her haritada o haritanın rengine göre yeniden çizilir.
 let GCL = null;
 const gc = () => GCL || (GCL = PAL[(MAPS[MAPT] || MAPS[0]).pal].g.map(hx));
-const flrFn = (a) => (x, y, z) => {
-  if (a && (x * 31 + y * 17) % (a == 1 ? 13 : 8) == 0) return [146, 140, 130];
-  const g = gc(),
-    h = (x * 7 + y * 13 + ((x * y) >> 1)) % 9;
-  return g[h == 0 ? 3 : h < 3 ? 2 : h < 6 ? 1 : 0];
-};
-const FLR = [flrFn(0), flrFn(1), flrFn(2)];
 // ---- Bina temeli: modellerde ayrı zemin plakası yok; bunun yerine zemine karışan, kenarı dağınık bir toprak lekesi (zemin geçişinde, binanın altına) çizilir.
 // Böylece bina "yerden ayrı parça" gibi durmaz, doğrudan zemine oturur. Leke boyuta göre önbelleğe alınır (harita değişince clearBldCache temizler).
 let FND = {};

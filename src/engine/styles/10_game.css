@@ -189,9 +189,6 @@ button:active {
   padding: 8px 22px;
   font-size: 14px;
 }
-#rot button.sk {
-  opacity: 0.85;
-}
 @keyframes rotph {
   0%,
   18% {
@@ -460,18 +457,6 @@ button:active {
   border-radius: 0;
   border-right: 0;
   padding-right: calc(104px + env(safe-area-inset-right, 0px));
-}
-
-#gm {
-  position: fixed;
-  inset: 0;
-  z-index: 80;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  background: #000a;
-  backdrop-filter: blur(4px);
-  font-family: ImpVoxel, system-ui, sans-serif;
 }
 
 .gp {

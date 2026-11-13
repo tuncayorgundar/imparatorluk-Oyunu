@@ -38,9 +38,6 @@ function rotHide() {
     r.style.display = 'none';
   }, 550);
 }
-function rotSkip() {
-  rotHide();
-}
 (function () {
   const r = E('rot');
   if (!r) return;

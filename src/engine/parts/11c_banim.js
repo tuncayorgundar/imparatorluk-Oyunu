@@ -43,7 +43,6 @@ function flag(x, y, col, t, sc) {
     }
   }
 }
-function bAnim() {}
 function drawMorph(b, sh) {
   const m = b.mo,
     key = b.fort ? 'tcf' : b.type == 'gt' && b.open ? 'gto' : b.type,

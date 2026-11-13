@@ -9,7 +9,6 @@ let GX = 80,
 const CS = 20; // su/sis/yol ızgarası (boyut/20 hücre), hücre 20 px
 const TC = ['#3a6fd8', '#d23b3b', '#e8c42a', '#3fae3a', '#22b8b0', '#9a4ad0', '#ee8a24', '#ee6aa8', '#aab0b8']; // takım renkleri: 0 oyuncu (mavi), 1-8 botlar (AoE4 sırası)
 const BCN = ['Mavi', 'Kırmızı', 'Sarı', 'Yeşil', 'Turkuaz', 'Mor', 'Turuncu', 'Pembe', 'Gri'];
-const KEY = 'kucukimp3'; // kayıt anahtarı
 
 // Bina verisi: n ad, i ikon, c [odun,altın] maliyet, r yarıçap, hp can, t inşaat süresi (sn), a gereken çağ
 const BD = {

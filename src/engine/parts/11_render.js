@@ -3,7 +3,6 @@
 // 2) nesneler dik (billboard) çizilir ve (x+y) derinliğine göre arkadan öne sıralanır, 3) sis ve üst katman (çubuklar, parçacıklar, oklar).
 // cam, yansıtılmış düzlemde görüntünün sol-üst köşesidir.
 const bsp = (b) => BSP(b.fort ? 'tcf' : b.type == 'gt' && b.open ? 'gto' : b.type, b.team, ageOf(b.team));
-const bdy = (b) => 0; // sprite'ın ayak izi merkezi (ax,ay) dünya noktasına oturur
 const gnd = () => ctx.setTransform(DPR * Z * ISA, DPR * Z * ISB, -DPR * Z * ISA, DPR * Z * ISB, DPR * Z * (OFFX - cam.x), -DPR * Z * cam.y); // zemin: dünya düzlemi -> izometrik
 const upr = () => ctx.setTransform(DPR * Z, 0, 0, DPR * Z, -DPR * Z * cam.x, -DPR * Z * cam.y); // dik katman: yansıtılmış düzlem
 const inView = (wx, wy, m) => {

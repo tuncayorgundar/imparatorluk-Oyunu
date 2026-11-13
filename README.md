@@ -3,7 +3,7 @@
 Tarayıcıda oynanan, **React + Vite** ile yazılmış izometrik orta çağ strateji oyunu. Köyünü kur, kaynak topla, çağ atla, ordunu eğit ve yapay zeka rakiplerinin Köy Merkezini yık.
 
 - **Canlı site:** https://imparatorluk-oyunu.vercel.app/
-- **Github Repository:** https://github.com/tuncayorgundar/imparatorluk-Oyunu
+- **Depo:** https://github.com/tuncayorgundar/imparatorluk-Oyunu
 
 ![Giriş ekranı](docs/ekran-goruntuleri/00-giris.jpg)
 
@@ -108,7 +108,7 @@ imparatorluk-Oyunu/
 ├─ vite.config.js            Vite ayarı + motor eklentisi (engineBundle)
 ├─ vercel.json, netlify.toml yayın ayarları
 ├─ public/                   müzik (mp3), uygulama ikonları, manifest
-├─ docs/                     teslim belgesi, planlama, mimari, yapay zeka kullanımı, ekran görüntüleri
+├─ docs/                     planlama, mimari, yapay zeka kullanımı, ekran görüntüleri
 ├─ tests/                    birim testleri (Vitest) + iki tarayıcı duman testi
 └─ src/
    ├─ main.jsx, App.jsx      giriş noktası ve uygulama kabuğu (ekran yönetimi, oturum, otomatik kayıt)

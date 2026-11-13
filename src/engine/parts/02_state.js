@@ -34,8 +34,7 @@ let wave = 1,
   dm = 1,
   aiT = 0,
   fgT = 0,
-  tipT = 0,
-  ISO = true; // dalga, çağ, zorluk (0 kolay, 1 normal, 2 zor, 3 özel), görev, yapay zekâ sayaçları
+  tipT = 0; // dalga, çağ, zorluk (0 kolay, 1 normal, 2 zor, 3 özel), görev, yapay zekâ sayaçları
 let CUS = { ...DIFFS[1] }; // Özel zorluk ayarları (dif==3 iken geçerli)
 const DF = () => (dif == 3 ? CUS : DIFFS[dif] || DIFFS[1]); // geçerli zorluk ayarları: oyun içindeki bütün zorluk etkileri buradan okunur
 let AR = [],

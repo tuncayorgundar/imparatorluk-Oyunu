@@ -1,6 +1,5 @@
 // ===== 04_buildings3d: bina ve kaynak modelleri (voxel). Ayak izi = bina yarıçapı kadar voxel (1 voxel = 2 dünya birimi) =====
 const STN = '#9b9b9b',
-  STD = '#858585',
   WDM = '#8a5a2e',
   WDD = '#6b4420';
 function crn(m, x0, y0, x1, y1, z, c) {
