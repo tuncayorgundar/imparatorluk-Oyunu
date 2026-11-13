@@ -175,8 +175,3 @@ Site tamamen statiktir; sunucu gerekmez.
 - Kayıtlar tarayıcıya özeldir; başka cihaza taşınmaz.
 - Oyun içi HUD ve inşa paneli hâlâ motor tarafından çizilir; React'a taşınması planlanıyor.
 
-## Emeği geçenler
-
-- Geliştirme: Tuncay
-- Müzik: ElevenLabs ile üretildi
-- Yapay zekâ asistanı: Claude (Anthropic)
