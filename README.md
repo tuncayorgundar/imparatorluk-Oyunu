@@ -3,8 +3,7 @@
 Tarayıcıda oynanan, **React + Vite** ile yazılmış izometrik orta çağ strateji oyunu. Köyünü kur, kaynak topla, çağ atla, ordunu eğit ve yapay zeka rakiplerinin Köy Merkezini yık.
 
 - **Canlı site:** https://imparatorluk-oyunu.vercel.app/
-- **Depo:** https://github.com/tuncayorgundar/imparatorluk-Oyunu
-- **Teslim belgesi:** [docs/TESLIM.md](docs/TESLIM.md)
+- **Depo:** https://github.com/tuncayorgundar/imparatorluk-Oyun
 
 ![Giriş ekranı](docs/ekran-goruntuleri/00-giris.jpg)
 
