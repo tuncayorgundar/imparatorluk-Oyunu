@@ -326,7 +326,7 @@ function smLoad() {
       .then((x) => {
         o[k] = x;
       })
-      .catch((e) => console.warn(e)); // mp3'ler public/ altından dosya olarak gelir (eskiden base64 gömülüydü)
+      .catch((e) => console.warn(e)); // mp3'ler public/music altından dosya olarak yüklenir
   for (const k in SMP.sfx) get(SB.s, k, SMP.sfx[k]);
   for (const k in SMP.mus) get(SB.m, k, SMP.mus[k]);
 }
