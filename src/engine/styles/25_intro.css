@@ -1,0 +1,154 @@
+/* kısa vurucu logo açılışı (Marvel/Netflix tarzı) */
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background: #000;
+  overflow: hidden;
+  touch-action: none;
+  transition: opacity 0.45s;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+#intro.out {
+  opacity: 0;
+  pointer-events: none;
+}
+#icv {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+}
+#ifx {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: #fff;
+  opacity: 0;
+}
+#ihint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: max(10px, env(safe-area-inset-bottom));
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: #f6ecd0;
+  opacity: 0;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 #000;
+  transition: opacity 0.8s;
+  pointer-events: none;
+}
+#ihint.on {
+  opacity: 0.45;
+}
+.ittl {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-54%);
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+}
+.ittl.on {
+  opacity: 1;
+}
+.ittl small {
+  display: block;
+  font-size: clamp(14px, 4.4vh, 34px);
+  letter-spacing: 0.9em;
+  margin-right: -0.9em;
+  color: #ffe9b0;
+  text-shadow:
+    0 2px 0 #3a1c06,
+    0 0 20px #ffb040aa;
+  opacity: 0;
+}
+.ittl.on small {
+  animation: itsm 0.6s 0.12s ease-out both;
+}
+.ittl b {
+  display: block;
+  position: relative;
+  font-weight: 400;
+  font-size: clamp(30px, 15vh, 104px);
+  line-height: 1;
+  letter-spacing: 0.05em;
+  color: #ffcf5a;
+  text-shadow:
+    0 5px 0 #6a3208,
+    0 0 34px #ff9a20cc,
+    0 0 90px #ff7a1088;
+  opacity: 0;
+}
+.ittl.on b {
+  animation: itslam 0.55s cubic-bezier(0.15, 1.2, 0.3, 1) both;
+}
+.ittl b:after {
+  content: attr(data-t);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  color: transparent;
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 240, 0.95) 50%, transparent 62%);
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: none;
+  animation: itsh 1.5s 0.55s ease-in-out both;
+}
+.ittl em {
+  display: block;
+  margin-top: clamp(8px, 2.4vh, 18px);
+  font-style: normal;
+  font-size: clamp(10px, 2.6vh, 18px);
+  letter-spacing: 0.28em;
+  color: #f6ecd0;
+  text-shadow: 0 2px 0 #000;
+  opacity: 0;
+}
+.ittl.on em {
+  animation: itsm 0.9s 0.9s ease-out both;
+}
+@keyframes itslam {
+  0% {
+    transform: scale(2.4);
+    opacity: 0;
+    filter: blur(12px);
+  }
+  35% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  60% {
+    transform: scale(0.94);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes itsm {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes itsh {
+  0% {
+    background-position: 150% 0;
+  }
+  100% {
+    background-position: -60% 0;
+  }
+}

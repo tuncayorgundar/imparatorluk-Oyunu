@@ -1,0 +1,732 @@
+/* Uygulama kabuğu ve React ekranlarının stilleri (saf CSS).
+   Oyun içi stiller ve ana menü/kurulum ekranının görünümü src/engine/styles altındadır. */
+
+:root {
+  --gold: #d8b560;
+  --gold-bright: #ffd36b;
+  --parchment: #f3ead2;
+  --parchment-dim: #e9d6a4;
+  --panel: linear-gradient(#2d2013f5, #17100af5);
+  --danger: #c0392b;
+  --ok: linear-gradient(#6fcf4a, #2f8a22);
+  --font: ImpVoxel, system-ui, sans-serif;
+}
+
+/* Motorun öğeleri doğrudan <body> altındaymış gibi yerleşsin (body dikey flex) */
+#root,
+.engine-host {
+  display: contents;
+}
+
+.icon {
+  display: inline-block;
+}
+
+/* ---------- açılış / hata ---------- */
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  background: #14130f;
+  color: var(--parchment);
+  font-family: var(--font);
+}
+
+.boot-screen button {
+  padding: 8px 18px;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ---------- alt ekranların gövdesi ---------- */
+.stm .panel-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4cqh;
+  padding: 1.6cqh 14px;
+  background: var(--panel);
+  border: 1.5px solid #c9a24a;
+  border-radius: 10px;
+  box-shadow: inset 0 0 24px #0008;
+  color: var(--parchment);
+  font-size: max(12px, 2cqh);
+}
+
+.stm .panel-body.narrow {
+  flex: none;
+  align-self: center;
+  width: min(460px, 90cqw);
+}
+
+.note {
+  margin: 0;
+  color: var(--parchment-dim);
+  font-size: max(11px, 1.7cqh);
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+.row-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button.ghost,
+.slot-actions button {
+  font: 700 max(11px, 1.8cqh) var(--font);
+  padding: 0.8cqh 14px;
+  border-radius: 7px;
+  border: 1px solid #d8b56088;
+  background: #0006;
+  color: var(--parchment);
+  cursor: pointer;
+}
+
+.slot-actions button.primary {
+  background: linear-gradient(#ffe08a, #e0a52c);
+  border-color: #fff1b0;
+  color: #3a2208;
+}
+
+button.danger,
+.slot-actions button.danger,
+.gg button.danger {
+  background: var(--danger);
+  border-color: #ffb4a6;
+  color: #fff;
+}
+
+/* ---------- kayıt yuvaları ---------- */
+.slots {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d8b56055;
+  background: #0000004d;
+  font-family: var(--font);
+  color: var(--parchment);
+}
+
+.slot.empty {
+  opacity: 0.7;
+}
+
+.slot-map {
+  flex: none;
+  width: 96px;
+  height: 60px;
+  border-radius: 5px;
+  border: 1px solid #d8b56088;
+  image-rendering: pixelated;
+}
+
+.slot-map-empty {
+  background: repeating-linear-gradient(45deg, #0005 0 6px, #fff1 6px 12px);
+}
+
+.slot-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+}
+
+.slot-info b {
+  color: var(--gold-bright);
+  font-size: 14px;
+}
+
+.slot-info small {
+  color: var(--parchment-dim);
+  opacity: 0.8;
+  font-size: 11px;
+}
+
+.slot-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* ---------- maç geçmişi ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 8px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 1.2cqh 6px;
+  border-radius: 8px;
+  border: 1px solid #d8b56055;
+  background: #0000004d;
+}
+
+.stat b {
+  font-size: max(18px, 3.4cqh);
+  color: var(--gold-bright);
+}
+
+.stat span {
+  font-size: max(10px, 1.5cqh);
+  letter-spacing: 0.08em;
+  color: var(--parchment-dim);
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.matches {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: max(11px, 1.7cqh);
+  white-space: nowrap;
+}
+
+.matches th {
+  text-align: left;
+  padding: 6px 8px;
+  color: #e2bd6a;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid #d8b56055;
+  font-weight: 700;
+}
+
+.matches td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #ffffff12;
+}
+
+.badge {
+  display: inline-block;
+  padding: 1px 9px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.badge.win {
+  background: #2f8a22;
+  color: #fff;
+}
+
+.badge.loss {
+  background: #7a1d1d;
+  color: #ffd9d2;
+}
+
+/* ---------- nasıl oynanır ---------- */
+.tips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 8px;
+}
+
+.tips li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #0000004d;
+  line-height: 1.35;
+}
+
+.tips em {
+  font-style: normal;
+  font-size: 1.5em;
+}
+
+.tips b {
+  color: var(--gold-bright);
+}
+
+/* ---------- duraklatma menüsü (oyunun .gp/.gt/.gg stillerini kullanır) ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000a;
+  backdrop-filter: blur(4px);
+  font-family: var(--font);
+}
+
+.overlay .gp.wide {
+  width: min(620px, 92vw);
+}
+
+.overlay .gg {
+  margin-top: 8px;
+}
+
+.gg button {
+  cursor: pointer;
+}
+
+.gg .span2 {
+  grid-column: span 2;
+}
+
+.gg button[aria-pressed='false'] {
+  opacity: 0.65;
+}
+
+/* Oyun sonu ekranı motorun #msg stillerini kullanır; React'ta canvas'ın üstünde durur */
+#msg {
+  position: fixed;
+  z-index: 85;
+}
+
+#msg button {
+  cursor: pointer;
+}
+
+/* ---------- bildirim ---------- */
+.notice {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 300;
+  max-width: 90cqw;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--gold);
+  background: #2a1c0ef0;
+  color: var(--parchment);
+  font: 700 14px var(--font);
+  box-shadow: 0 4px 16px #000a;
+}
+
+.stm button,
+.overlay button {
+  cursor: pointer;
+}
+
+.stm button:focus-visible,
+.overlay button:focus-visible,
+#msg button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.section-title {
+  margin: 0;
+  font-size: max(11px, 1.7cqh);
+  letter-spacing: 0.2em;
+  color: #e2bd6a;
+}
+
+/* ---------- cihaza göre ---------- */
+/* Fareli cihaz: kutu seçim düğmesi gereksiz (sol tuşla sürüklemek yeter) */
+@media (hover: hover) and (pointer: fine) {
+  #bxb {
+    display: none;
+  }
+}
+
+/* Oyun alanında metin seçimi ve tarayıcı hareketleri olmasın */
+#c {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* ---------- giriş ekranı ---------- */
+.stm #sc1.login {
+  justify-content: space-between;
+  gap: 4cqw;
+  padding: 2cqh 5cqw;
+  background: linear-gradient(90deg, #000d 0, #0008 45%, #000a 100%);
+}
+
+.login-card {
+  width: min(440px, 46cqw);
+  max-height: 94%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2cqh;
+  padding: max(12px, 2.2cqh) 18px;
+  background: var(--panel);
+  border: 1.5px solid #c9a24a;
+  border-radius: 12px;
+  box-shadow:
+    inset 0 0 24px #0008,
+    0 10px 40px #000a;
+  color: var(--parchment);
+  font-family: var(--font);
+  animation: login-in 0.5s ease-out both;
+}
+
+@keyframes login-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login-card {
+    animation: none;
+  }
+}
+
+.login-title {
+  margin: 0;
+  text-align: center;
+  font-size: max(15px, 3cqh);
+  letter-spacing: 0.16em;
+  color: var(--gold-bright);
+  text-shadow: 0 2px 0 #3a1c06;
+}
+
+/* kayıtlı oyuncular */
+.profiles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile {
+  display: flex;
+  gap: 6px;
+}
+
+.profile-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 9px;
+  border: 1px solid #d8b56055;
+  background: #0000004d;
+  color: var(--parchment);
+  font-family: var(--font);
+  text-align: left;
+}
+
+.profile-main:hover,
+.profile-main:focus-visible {
+  border-color: var(--gold);
+  background: linear-gradient(90deg, #d8b5602e, #0000);
+}
+
+.profile.last .profile-main {
+  border-color: #fff1b0;
+  background: linear-gradient(90deg, #d8b56040, #0003);
+}
+
+.profile-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.profile-info b {
+  font-size: max(14px, 2.4cqh);
+  color: #fff7d1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile-info small {
+  font-size: max(10px, 1.5cqh);
+  color: var(--parchment-dim);
+  opacity: 0.8;
+}
+
+.profile-go {
+  flex: none;
+  padding: 4px 10px;
+  border-radius: 7px;
+  font-weight: 700;
+  font-size: max(11px, 1.7cqh);
+  background: linear-gradient(#ffe08a, #e0a52c);
+  color: #3a2208;
+}
+
+.profile:not(.last) .profile-go {
+  background: #0006;
+  color: var(--parchment);
+  border: 1px solid #d8b56066;
+}
+
+.profile-del {
+  flex: none;
+  width: 42px;
+  border-radius: 9px;
+  border: 1px solid #d8b56044;
+  background: #0000004d;
+  color: var(--parchment);
+  font: 700 12px var(--font);
+}
+
+.profile-del:hover {
+  border-color: #ffb4a6;
+}
+
+.avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: max(36px, 6cqh);
+  height: max(36px, 6cqh);
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  background: radial-gradient(circle at 35% 30%, #4a6fd8, #1d2f6b);
+  font-size: max(18px, 3.2cqh);
+  box-shadow: inset 0 0 8px #0008;
+}
+
+.login-new {
+  padding: 1cqh 14px;
+  border-radius: 9px;
+  border: 1px dashed #d8b56099;
+  background: transparent;
+  color: var(--gold-bright);
+  font: 700 max(13px, 2cqh) var(--font);
+  letter-spacing: 0.06em;
+}
+
+.login-new:hover {
+  background: #d8b5601f;
+}
+
+/* yeni oyuncu formu */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1cqh;
+  margin: 0;
+}
+
+.field-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: max(11px, 1.7cqh);
+  letter-spacing: 0.14em;
+  color: #e2bd6a;
+}
+
+.counter {
+  letter-spacing: 0;
+  opacity: 0.7;
+}
+
+.name-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: max(8px, 1.3cqh) 12px;
+  border-radius: 8px;
+  border: 1.5px solid #d8b56088;
+  background: #0009;
+  color: #fff7d1;
+  font: 700 max(16px, 2.6cqh) var(--font); /* 16px altı iOS'ta sayfayı yakınlaştırır */
+  letter-spacing: 0.04em;
+  user-select: text;
+  -webkit-user-select: text;
+  touch-action: manipulation;
+}
+
+.name-input::placeholder {
+  color: #f3ead255;
+}
+
+.name-input:focus {
+  outline: none;
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 0 3px #ffd36b33;
+}
+
+.name-input.invalid {
+  border-color: #e0614f;
+}
+
+.field-error {
+  min-height: 1.3em;
+  font-size: max(11px, 1.6cqh);
+  color: #ff9a8a;
+}
+
+.avatars {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.avatars legend {
+  margin-bottom: 0.6cqh;
+  padding: 0;
+  width: 100%;
+}
+
+.avatar-option {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 2px;
+  border-radius: 9px;
+  border: 1px solid #d8b56033;
+  background: #0000004d;
+  cursor: pointer;
+}
+
+.avatar-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.avatar-option small {
+  font-size: max(9px, 1.4cqh);
+  color: var(--parchment-dim);
+}
+
+.avatar-option.on {
+  border-color: #fff1b0;
+  background: linear-gradient(#d8b56040, #0003);
+}
+
+.avatar-option.on .avatar {
+  background: radial-gradient(circle at 35% 30%, #ffd36b, #b0741c);
+}
+
+.avatar-option:has(input:focus-visible) {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.login-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 0.6cqh;
+}
+
+.login-actions .play {
+  flex: 1;
+}
+
+/* ana menüdeki oyuncu rozeti */
+.player-chip {
+  position: absolute;
+  top: max(10px, 2cqh);
+  right: max(12px, 3cqw);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px 6px 6px;
+  border-radius: 999px;
+  border: 1px solid #d8b56088;
+  background: #000a;
+  font-family: var(--font);
+  color: var(--parchment);
+}
+
+.player-chip .avatar {
+  width: 34px;
+  height: 34px;
+  font-size: 18px;
+}
+
+.player-chip b {
+  display: block;
+  max-width: 28cqw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #fff7d1;
+}
+
+.player-chip small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: #e2bd6a;
+}
+
+.player-chip button {
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid #d8b56066;
+  background: #0006;
+  color: var(--parchment);
+  font: 700 11px var(--font);
+}
+
+/* dar / alçak ekran (telefon yatay) */
+@media (max-height: 440px), (max-width: 760px) {
+  .stm #sc1.login {
+    gap: 3cqw;
+    padding: 2cqh 3cqw;
+  }
+  .stm #sc1.login .lc2 {
+    width: min(38cqw, 330px);
+  }
+  .login-card {
+    width: min(420px, 56cqw);
+    max-height: 96%;
+    gap: 0.8cqh;
+    padding: 10px 12px;
+  }
+  .login .note {
+    display: none;
+  }
+  .avatar-option small {
+    display: none;
+  }
+}
+
+/* Menü katmanı bir boyut kapsayıcısıdır: içindeki ölçüler (cqh/cqw) ekrana değil bu katmanın kendi boyutuna göre
+   hesaplanır. Telefon dikey tutulup oyun 90° döndürüldüğünde (html.fl) vh/vw yanlış kenarı ölçerdi; cq birimleri
+   döndürülmüş katmanın gerçek genişliğini ve yüksekliğini ölçer. Masaüstünde ve yatayda cq = v birimleridir. */
+.stm {
+  container-type: size;
+}

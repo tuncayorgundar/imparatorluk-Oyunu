@@ -1,0 +1,6 @@
+{
+  "semi": false,
+  "singleQuote": true,
+  "printWidth": 130,
+  "overrides": [{ "files": "src/engine/parts/*.js", "options": { "semi": true, "printWidth": 140 } }]
+}

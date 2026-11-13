@@ -1,0 +1,335 @@
+/* ===== 30_ui: mobil dostu dock + yan panel (yatay kaydırma yok) ===== */
+#bar {
+  height: auto;
+  min-height: 0;
+  position: fixed;
+  z-index: 7;
+  display: flex;
+  gap: 7px;
+  margin: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  overflow: visible;
+  touch-action: manipulation;
+  padding: 0;
+  right: auto;
+  left: auto;
+  top: auto;
+  bottom: auto;
+  border-radius: 0;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+#bar button {
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  text-shadow: none;
+  border-radius: 0;
+  font: inherit;
+  color: inherit;
+  white-space: normal;
+}
+/* --- dock: altta ortada, sığar, kaydırma yok --- */
+#bar.dock {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+  max-width: calc(100vw - 210px);
+  padding: 4px 6px;
+  gap: 5px;
+  background: linear-gradient(#2a1c0ef2, #170f06f2);
+  border: 1.5px solid #d8b560;
+  border-radius: 14px;
+  box-shadow:
+    0 5px 16px #000b,
+    inset 0 0 18px #0006;
+  align-items: center;
+  justify-content: center;
+}
+#bar .dkonly {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+#bar.panel .dkonly {
+  display: none;
+}
+#bar.dock .pal {
+  display: none;
+}
+#bar .dk {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  min-width: 48px;
+  min-height: 38px;
+  padding: 3px 6px;
+  border-radius: 10px;
+  background: linear-gradient(#a37d44, #6a4a24);
+  border: 1px solid #f0d27a;
+  color: #fff6dc;
+  font-size: 10px;
+  font-weight: 700;
+  box-shadow: 0 2px 0 #2a1a0a;
+}
+#bar .dk i {
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.05;
+}
+#bar .dk:active,
+#bar .cd:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+#bar .dk.pri {
+  min-width: 80px;
+  flex-direction: row;
+  gap: 6px;
+  font-size: 13px;
+  background: linear-gradient(#7fd85a, #2f8a22);
+  border-color: #fff0b0;
+  box-shadow: 0 2px 0 #14420f;
+}
+#bar .dk.ok {
+  min-width: 90px;
+  flex-direction: row;
+  gap: 6px;
+  font-size: 13px;
+  background: linear-gradient(#7fd85a, #2f8a22);
+  border-color: #fff0b0;
+  box-shadow: 0 2px 0 #14420f;
+}
+#bar .dk.dn {
+  min-width: 76px;
+  flex-direction: row;
+  gap: 5px;
+  font-size: 12px;
+  background: linear-gradient(#e0705a, #8a2418);
+  border-color: #ffd0c0;
+  box-shadow: 0 2px 0 #3a0c06;
+}
+#bar .nf {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 6px;
+  color: #ffe9a8;
+  font-family: ImpVoxel, system-ui, sans-serif;
+  white-space: nowrap;
+}
+#bar .nf b {
+  font-size: 12px;
+}
+#bar .nf small {
+  font-size: 10px;
+  opacity: 0.85;
+  font-family: ImpVoxel, system-ui, sans-serif;
+}
+/* --- panel: sağdan gelir, dikey kaydırılır --- */
+#bar.panel {
+  top: calc(56px + env(safe-area-inset-top, 0px));
+  right: 0;
+  bottom: 0;
+  width: min(262px, 38vw);
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 8px calc(8px + env(safe-area-inset-bottom, 0px)) 10px;
+  background: linear-gradient(#3a2a16f8, #1c1209f8);
+  border: 2px solid #d8b560;
+  border-right: 0;
+  border-radius: 14px 0 0 14px;
+  box-shadow: -6px 0 20px #000b;
+  overflow-y: auto;
+  overflow-x: hidden;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+  animation: pin 0.18s ease-out;
+}
+@keyframes pin {
+  from {
+    transform: translateX(46px);
+    opacity: 0;
+  }
+}
+#bar .pal {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+#bar .ph {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffe9a8;
+  font-family: ImpVoxel, system-ui, sans-serif;
+}
+#bar .ph i {
+  font-style: normal;
+  font-size: 20px;
+}
+#bar .ph b {
+  font-size: 14px;
+  flex: 1;
+}
+#bar .x {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #0008 !important;
+  border: 1px solid #d8b560aa !important;
+  color: #ffe9a8;
+  font-size: 13px;
+  flex: none;
+}
+#bar .pb {
+  height: 6px;
+  border-radius: 5px;
+  background: #0009;
+  border: 1px solid #d8b56055;
+  overflow: hidden;
+  flex: none;
+}
+#bar .pb i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(#7fe05a, #3a9a28);
+  transition: width 0.2s;
+}
+#bar .pq {
+  font-size: 11px;
+  color: #e9d6a4;
+  flex: none;
+}
+#bar .tabs {
+  display: flex;
+  gap: 6px;
+  flex: none;
+}
+#bar .tb {
+  flex: 1;
+  padding: 6px 2px !important;
+  border-radius: 9px !important;
+  font-size: 10.5px;
+  font-weight: 700;
+  background: #0007 !important;
+  border: 1px solid #d8b56077 !important;
+  color: #e9d6a4;
+}
+#bar .tb.on {
+  background: linear-gradient(#ffe08a, #e0a52c) !important;
+  color: #3a2208;
+  border-color: #fff1b0 !important;
+}
+#bar .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+#bar .pal .grid {
+  display: none;
+}
+#bar .pal .grid.on {
+  display: grid;
+}
+#bar .cd {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  min-height: 58px;
+  padding: 5px 3px;
+  border-radius: 11px;
+  background: linear-gradient(#8a6a3a, #5a3f1e);
+  border: 1px solid #f0d27a;
+  color: #fff6dc;
+  text-align: center;
+  box-shadow: 0 2px 0 #2a1a0a;
+}
+#bar .cd i {
+  font-style: normal;
+  font-size: 21px;
+  line-height: 1;
+}
+#bar .cd b {
+  font-size: 11.5px;
+  line-height: 1.1;
+}
+#bar .cd small {
+  font-size: 10px;
+  color: #ffe9a8;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
+  line-height: 1.2;
+}
+#bar .cd s {
+  text-decoration: none;
+}
+#bar .cd.pri {
+  background: linear-gradient(#5fb83a, #2f7a22);
+  border-color: #fff0b0;
+  box-shadow: 0 2px 0 #14420f;
+}
+#bar .cd.no {
+  opacity: 0.5;
+}
+#bar .cd.lk {
+  background: linear-gradient(#4a4a4a, #2a2a2a);
+  border-color: #777;
+  color: #bbb;
+  box-shadow: 0 2px 0 #111;
+}
+/* panel açıkken harita düğmeleri ve mini harita yana kayar / gizlenir */
+body.pnl #cl {
+  transform: translateX(calc(-1 * (min(262px, 38vw) + 6px)));
+}
+body.pnl #mm {
+  opacity: 0;
+  pointer-events: none;
+}
+#cl,
+#mm {
+  transition:
+    transform 0.18s,
+    opacity 0.18s;
+}
+
+#bar button.lk {
+  opacity: 1;
+  filter: none;
+}
+/* kendi çizdiğimiz ikonlar (00_icons.js): emoji yerine geçer, boyut yazı boyutuna bağlı */
+.ic {
+  width: 1.15em;
+  height: 1.15em;
+  vertical-align: -0.2em;
+  display: inline-block;
+  overflow: visible;
+  flex: none;
+  filter: drop-shadow(0 1px 0 #0005);
+}
+.nb {
+  display: inline-grid;
+  place-items: center;
+  width: 1.15em;
+  height: 1.15em;
+  border-radius: 50%;
+  background: linear-gradient(#ffe08a, #e0a52c);
+  color: #2b1a0c;
+  border: 1.5px solid #2b1a0c;
+  font:
+    700 0.72em/1 ImpVoxel,
+    system-ui,
+    sans-serif;
+  vertical-align: 0.05em;
+}

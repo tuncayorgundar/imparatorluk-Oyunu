@@ -1,0 +1,340 @@
+/* ===== 22_menu2: AoE tarzı iki ekranlı menü: sol dikey başlık menüsü + Tek Oyunculu kurulum ekranı ===== */
+.stm .scr {
+  position: absolute;
+  inset: 0;
+  display: none;
+  z-index: 3;
+  font-family: ImpVoxel, system-ui, sans-serif;
+}
+.stm .scr.on {
+  display: flex;
+}
+.stm #sc1 {
+  align-items: center;
+  padding: 2cqh 5cqw;
+  background: linear-gradient(90deg, #000d 0, #0007 42%, #0000 72%);
+}
+.stm .lc2 {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2cqh;
+  width: min(48cqw, 430px);
+}
+.stm .lg2 {
+  text-align: left;
+}
+.stm .lg2 .tg {
+  justify-content: flex-start;
+}
+.stm .lg2 .tg i:first-child {
+  display: none;
+}
+.stm .lg2 h1 {
+  font-size: min(10cqh, 48px);
+}
+.stm .lg2 p {
+  margin: 0.5em 0 0;
+  font-family: ImpVoxel, system-ui, sans-serif;
+  font-size: max(10px, 1.9cqh);
+  color: #e2e8f0cc;
+  letter-spacing: 0.08em;
+}
+.stm .mnu {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid #d8b56066;
+}
+.stm .mi {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  text-align: left;
+  padding: max(6px, 1.5cqh) 16px;
+  border: 0;
+  border-bottom: 1px solid #d8b56044;
+  border-left: 4px solid transparent;
+  background: linear-gradient(90deg, #000b, #0000);
+  color: #f3e6bf;
+  font: inherit;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+}
+.stm .mi b {
+  font-size: max(14px, 3.4cqh);
+  font-weight: 800;
+}
+.stm .mi small {
+  font-size: max(9px, 1.5cqh);
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+  font-family: ImpVoxel, system-ui, sans-serif;
+}
+.stm .mi:active,
+.stm .mi:hover {
+  border-left-color: #fcd34d;
+  background: linear-gradient(90deg, #d8b5602e, #0000);
+  color: #fff7d1;
+}
+.stm .mrow {
+  display: flex;
+  gap: 10px;
+  padding-top: 1.4cqh;
+}
+.stm .mi2 {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: max(5px, 1cqh) 12px;
+  border-radius: 999px;
+  border: 1px solid #d8b56088;
+  background: #0007;
+  color: #f3e6bf;
+  font: inherit;
+  font-size: max(10px, 1.8cqh);
+  letter-spacing: 0.06em;
+}
+.stm .mi2 b {
+  font-weight: 700;
+}
+/* kurulum ekranı */
+.stm #sc2 {
+  flex-direction: column;
+  gap: 1.2cqh;
+  padding: max(8px, 2.2cqh) 3cqw;
+  background: linear-gradient(#000b, #000c);
+}
+.stm .sh {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fcd34d;
+  letter-spacing: 0.18em;
+  font-size: max(13px, 2.8cqh);
+  font-weight: 800;
+}
+.stm .bk {
+  width: max(30px, 6cqh);
+  height: max(30px, 6cqh);
+  border-radius: 50%;
+  border: 1.5px solid #d8b560;
+  background: #2d2013;
+  color: #fcd34d;
+  font-size: max(14px, 3cqh);
+  padding: 0;
+}
+.stm .sb {
+  flex: 1;
+  display: flex;
+  gap: 1.1cqw;
+  min-height: 0;
+}
+.stm .col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8cqh;
+  min-height: 0;
+  min-width: 0;
+  padding: 1cqh 10px;
+  background: linear-gradient(#2d2013f5, #17100af5);
+  border: 1.5px solid #c9a24a;
+  border-radius: 10px;
+  box-shadow: inset 0 0 24px #0008;
+}
+.stm .col h3 {
+  margin: 0;
+  padding-bottom: 0.6cqh;
+  border-bottom: 1px solid #d8b56055;
+  text-align: center;
+  font-size: max(10px, 1.7cqh);
+  letter-spacing: 0.22em;
+  color: #e2bd6a;
+}
+.stm .stp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #f3e6bf;
+  font-size: max(11px, 2cqh);
+  font-weight: 800;
+}
+.stm .sq {
+  width: max(26px, 5cqh);
+  height: max(26px, 5cqh);
+  border-radius: 8px;
+  border: 1px solid #f0d27a;
+  background: linear-gradient(#a37d44, #6a4a24);
+  color: #fff6dc;
+  font-size: max(15px, 3cqh);
+  font-weight: 900;
+  padding: 0;
+}
+.stm .pl,
+.stm .ml {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  -webkit-overflow-scrolling: touch;
+}
+.stm .pr {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: max(3px, 0.6cqh) 6px;
+  border-radius: 6px;
+  background: #0006;
+  color: #f3e6bf;
+  font-size: max(10px, 1.8cqh);
+}
+.stm .pr i {
+  flex: none;
+  width: max(12px, 2.2cqh);
+  height: max(12px, 2.2cqh);
+  border-radius: 50%;
+  border: 1.5px solid #fffb;
+}
+.stm .pr small {
+  margin-left: auto;
+  font-family: ImpVoxel, system-ui, sans-serif;
+  font-size: max(8px, 1.4cqh);
+  opacity: 0.7;
+  white-space: nowrap;
+}
+.stm .mp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 6px;
+  border-radius: 7px;
+  border: 1px solid #d8b56033;
+  background: #0006;
+  color: #f3e6bf;
+  font:
+    700 max(10px, 1.8cqh) ImpVoxel,
+    system-ui,
+    sans-serif;
+  text-align: left;
+}
+.stm .mp canvas {
+  flex: none;
+  width: max(36px, 6.4cqh);
+  height: max(22px, 4cqh);
+  border-radius: 3px;
+  border: 1px solid #0009;
+}
+.stm .mp.on {
+  background: linear-gradient(#ffe08a, #e0a52c);
+  color: #3a2208;
+  border-color: #fff1b0;
+}
+.stm .pvc {
+  width: auto;
+  max-width: 100%;
+  height: 25cqh;
+  aspect-ratio: 8/5;
+  align-self: center;
+  object-fit: contain;
+  border-radius: 6px;
+  border: 2px solid #0009;
+  box-shadow: 0 0 0 1px #d8b56088;
+}
+.stm .pvn {
+  font-size: max(12px, 2.3cqh);
+  font-weight: 800;
+  color: #fcd34d;
+  letter-spacing: 0.1em;
+}
+.stm .pvd {
+  font-family: ImpVoxel, system-ui, sans-serif;
+  font-size: max(8.5px, 1.5cqh);
+  line-height: 1.25;
+  color: #e2e8f0cc;
+}
+.stm .opts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7cqh 8px;
+}
+.stm .opts .w2 {
+  grid-column: 1/-1;
+}
+.stm .col {
+  overflow: hidden;
+}
+.stm .col.rt {
+  overflow-y: auto;
+}
+.stm .opt {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.stm .opt label {
+  font-size: max(8px, 1.4cqh);
+  letter-spacing: 0.2em;
+  color: #e2bd6a;
+  text-transform: uppercase;
+}
+.stm .sg {
+  display: flex;
+  gap: 4px;
+}
+.stm .sgb {
+  flex: 1;
+  padding: max(4px, 0.8cqh) 2px;
+  border-radius: 7px;
+  border: 1px solid #d8b56055;
+  background: #0006;
+  color: #f3e6bf;
+  font:
+    700 max(10px, 1.8cqh) ImpVoxel,
+    system-ui,
+    sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.stm .sgb small {
+  font:
+    400 max(7px, 1.2cqh) ImpVoxel,
+    system-ui,
+    sans-serif;
+  opacity: 0.7;
+}
+.stm .sgb.on {
+  background: linear-gradient(#ffe08a, #e0a52c);
+  color: #3a2208;
+  border-color: #fff1b0;
+}
+.stm .sf {
+  display: flex;
+  justify-content: flex-end;
+}
+.stm .sf .play {
+  width: min(340px, 50cqw);
+}
+.snh {
+  position: absolute;
+  left: 50%;
+  bottom: max(10px, 2vh);
+  transform: translateX(-50%);
+  z-index: 6;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid #d8b56099;
+  background: #000a;
+  color: #f3e6bf;
+  font-size: max(12px, 1.9vh);
+  pointer-events: none;
+  white-space: nowrap;
+  animation: snhp 1.6s ease-in-out infinite;
+}
+@keyframes snhp {
+  50% {
+    opacity: 0.45;
+  }
+}
